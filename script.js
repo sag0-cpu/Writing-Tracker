@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div>
                 <button class="increment">+1 Scene</button>
+                <button class="decrement">-1 Scene</button>
                 <span class="count">0/${totalScenes}</span>
             </div>
         `;
@@ -31,16 +32,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const progressBarFill = li.querySelector('.progress-bar-fill');
         const countDisplay = li.querySelector('.count');
         const incrementButton = li.querySelector('.increment');
+        const decrementButton = li.querySelector('.decrement');
 
         let currentScenes = 0;
 
+        // Increment scene count
         incrementButton.addEventListener('click', () => {
             if (currentScenes < totalScenes) {
                 currentScenes++;
-                countDisplay.textContent = `${currentScenes}/${totalScenes}`;
-                progressBarFill.style.width = `${(currentScenes / totalScenes) * 100}%`;
+                updateProgress();
             }
         });
+
+        // Decrement scene count
+        decrementButton.addEventListener('click', () => {
+            if (currentScenes > 0) {
+                currentScenes--;
+                updateProgress();
+            }
+        });
+
+        // Update progress bar and text
+        function updateProgress() {
+            countDisplay.textContent = `${currentScenes}/${totalScenes}`;
+            progressBarFill.style.width = `${(currentScenes / totalScenes) * 100}%`;
+        }
 
         sectionsList.appendChild(li);
     }
