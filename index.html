@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section-Driven Writing Goals</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Writing Goal Tracker</h1>
+    </header>
+    <main>
+        <section id="goal-setup">
+            <h2>Set Your Goal</h2>
+            <form id="goal-form">
+                <label for="section-name">Section Name:</label>
+                <input type="text" id="section-name" placeholder="e.g., Chapter 1" required>
+                
+                <label for="scene-count">Number of Scenes:</label>
+                <input type="number" id="scene-count" placeholder="e.g., 5" min="1" required>
+                
+                <button type="submit">Add Section</button>
+            </form>
+        </section>
+        <section id="progress-tracker">
+            <h2>Your Writing Goals</h2>
+            <ul id="sections-list">
+                <!-- Sections will be dynamically added here -->
+            </ul>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
